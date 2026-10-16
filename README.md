@@ -26,7 +26,7 @@ Check JavaScript syntax with `npm run check`.
 - Density defaults follow material selection and remain editable. Infill is a separate percentage. Estimated mass = solid volume × material density × effective fill fraction; FDM assumes a 15% shell allowance, while SLA/SLS estimates use solid volume.
 - Add client name, company, email, and project notes.
 - Review preliminary mesh integrity and indicative build-envelope warnings.
-- Edit estimate rates, save a browser-local draft, export quote JSON, or print/save PDF.
+- Edit estimate rates, save a browser-local draft, export a formatted Excel (.xlsx) quotation or quote JSON, or print/save PDF.
 
 Sample brackets are marked as examples. Replace them with your actual STL files. Files are processed locally in the browser. Drafts use localStorage and are specific to the browser and site origin.
 
@@ -37,3 +37,11 @@ Sample brackets are marked as examples. Replace them with your actual STL files.
 ## Estimate limitations
 
 Prices are configurable preliminary estimates in USD, excluding taxes and shipping. The material rate is USD/g with material multipliers; machine time uses indicative throughput. This tool does not generate slicer toolpaths or certify printability. Wall thickness, overhangs, support needs, trapped resin/powder, and functional strength require slicer and engineering review.
+
+## Excel quotation
+
+Select **Review quote → Export Excel (.xlsx)**. The workbook contains a client-facing Quote sheet and a Components sheet with density in g/cm³, infill, finishing, quantity, volume, mass, unit price, line totals, and risk notes. Mass and totals include formulas with cached results; unit prices are snapshots of the current quote. Regenerate the export in the app after changing the material or process. Excel files are generated locally without third-party services.
+
+## GitHub Pages
+
+The `.github/workflows/pages.yml` workflow deploys `public/` when website changes are pushed to `main`. In repository Settings → Pages, set the source to GitHub Actions. The expected project URL is https://sophimotion.github.io/Nikinic-88/ . The static assets use relative paths for project-site compatibility.

@@ -5,6 +5,6 @@
   "description": "SophiMotion 3D printing quote workspace",
   "scripts": {
     "start": "node server.cjs",
-    "check": "node --check server.cjs && node --check public/app.js"
+    "check": "node --check server.cjs && node --check public/app.js && node --check public/excel-export.js"
   }
 }
