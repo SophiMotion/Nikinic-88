@@ -20,7 +20,7 @@ Check JavaScript syntax with `npm run check`.
 
 ## Features
 
-- Import binary or ASCII STL files, up to 25 MB and 150,000 triangles per file.
+- Import STL, STEP/STP, IGES/IGS, BREP, OBJ, PLY and standard mesh 3MF files, up to 25 MB and 150,000 triangles per model. Select or drag multiple files together; separate meshes become independent quote components.
 - Rotate and zoom component previews; confirm file units in mm, cm, or inches.
 - Independently configure material, method, density in **g/cm³**, infill percentage, post-processing, and quantity for each component.
 - Density defaults follow material selection and remain editable. Infill is a separate percentage. Estimated mass = solid volume × material density × effective fill fraction; FDM assumes a 15% shell allowance, while SLA/SLS estimates use solid volume.
@@ -45,3 +45,11 @@ Select **Review quote → Export Excel (.xlsx)**. The workbook contains a client
 ## GitHub Pages
 
 The `.github/workflows/pages.yml` workflow deploys `public/` when website changes are pushed to `main`. In repository Settings → Pages, set the source to GitHub Actions. The expected project URL is https://sophimotion.github.io/Nikinic-88/ . The static assets use relative paths for project-site compatibility.
+
+## Fusion and CAD imports
+
+Attach Autodesk Fusion `.f3d` / `.f3z` as local source files. Native Fusion solid geometry is **not decoded** by this browser tool. Export the design or assembly as STEP from Fusion, then choose **Link exported geometry** beside the source file. The converted parts retain a reference to the Fusion filename in quotation JSON and Excel. Source archives are kept in browser IndexedDB when available and can be downloaded or removed locally; quotation exports include filenames, not the native file bytes. Source files awaiting geometry appear as risk warnings and do not create a fabricated price.
+
+STEP/IGES conversion runs locally in a Web Worker using OpenCascade WebAssembly. Output and 3MF units are normalized to millimeters; STL, OBJ, PLY and BREP units must be confirmed. Multi-mesh files create multiple components. The importer supports standard triangle mesh 3MF, not all slicer-specific extensions, lattices or point-cloud PLY. OBJ materials and 3MF textures are not used for quoting. Model conversion can take up to 90 seconds; large imports may require simplifying the source model.
+
+Vendored Three.js loaders (MIT) and occt-import-js / OpenCascade (LGPL) are separate, pinned local assets. No build or runtime CDN is required. See `public/THIRD_PARTY_NOTICES.txt` and `public/vendor/` for source and license notices.

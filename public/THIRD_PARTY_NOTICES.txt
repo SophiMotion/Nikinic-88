@@ -1,0 +1,23 @@
+Third-party components used for local 3D geometry import
+
+Three.js 0.186.1 (MIT)
+Source: https://github.com/mrdoob/three.js/tree/r186
+License: vendor/three/LICENSE
+Includes vendored fflate module and its license notice in the module source.
+Three.js is used for file parsing and transformations; previews remain Canvas 2D.
+
+occt-import-js 0.0.23 (LGPL-2.1)
+Source: https://github.com/kovacsv/occt-import-js/tree/0.0.23
+Package source: https://registry.npmjs.org/occt-import-js/-/occt-import-js-0.0.23.tgz
+Build instructions: https://github.com/kovacsv/occt-import-js#how-to-build-on-windows
+Unmodified JavaScript and WebAssembly distributed under vendor/occt/.
+License: vendor/occt/license.occt-import-js.txt
+
+Open CASCADE Technology (included in the above WebAssembly module)
+Source: https://github.com/kovacsv/occt-import-js (see submodule and build configuration)
+License and OCCT exception: vendor/occt/license.occt.txt
+
+The importer scripts and WebAssembly are separately loaded resources and can be
+replaced with compatible builds. This site does not upload user geometry to any
+conversion service. Native Autodesk Fusion F3D/F3Z files are source attachments;
+their proprietary solid geometry is not decoded. Link a STEP export for quoting.

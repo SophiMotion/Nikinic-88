@@ -4,7 +4,7 @@ const path = require('node:path');
 
 const root = path.join(__dirname, 'public');
 const port = Number(process.argv[2] || process.env.PORT || 4173);
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.wasm': 'application/wasm', '.txt': 'text/plain; charset=utf-8' };
 
 const server = http.createServer((req, res) => {
   if (!['GET', 'HEAD'].includes(req.method)) {
